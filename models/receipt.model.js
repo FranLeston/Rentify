@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const constants = require('../constants');
 
-const receiptsSchema = new mongoose.Schema({
+const receiptSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -39,5 +39,6 @@ const receiptsSchema = new mongoose.Schema({
   }
 });
 
-const Receipt = mongoose.model('Receipt', ReceiptSchema);
+const Receipt = mongoose.model('Receipt', receiptSchema);
+
 module.exports = Receipt;
