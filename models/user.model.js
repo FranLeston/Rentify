@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const constants = require('../constants');
-const admins = (process.env.ADMIN_EMAILS || "admin@example.org")
+const admins = (process.env.ADMIN_EMAILS || "lestonramos@gmail.com")
   .split(',')
   .map(o => o.trim())
   
@@ -34,14 +34,14 @@ const userSchema = new mongoose.Schema({
     default: constants.defaultRole,
     required: 'Role is required'
   },
-  homeproperty: {
+  address: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Contract",
   },
-  phone: {
+  phoneNum: {
     type: String
   },
-  banknum: {
+  bankNum: {
     type: String
   },
   dniURL: {

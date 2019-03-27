@@ -6,15 +6,12 @@ const receiptSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  landlord: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Landlord",
-  },
-  paydate: {
+  datePaid: {
     type: Date,
+    default: Date.now,
     required: 'Start date is required'
   },
-  rentamount: {
+  rentAmount: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Contract"
   },

@@ -4,29 +4,33 @@ const User = require("../models/user.model");
 
 const contractSchema = new mongoose.Schema(
   {
-    userID: {
+    tenantId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
-    },
-    startdate: {
-      type: Date
-    },
-    enddate: {
-      type: Date
-    },
-    rentamount: {
-      type: Number
-    },
-    homeproperty: {
-      type: String
-    },
-    generalinfo: {
-      type: String
     },
     contractURL: {
       type: String
     },
-    numcatastral: {
+    startDate: {
+      type: Date,
+      required: true
+    },
+    endDate: {
+      type: Date,
+      required: true
+    },
+    rentAmount: {
+      type: Number,
+      required: true
+    },
+    address: {
+      type: String,
+      required: true
+    },
+    generalInfo: {
+      type: String
+    },
+    numCatastral: {
       type: String
     }
   },
