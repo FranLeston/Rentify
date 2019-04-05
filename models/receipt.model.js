@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const constants = require('../constants');
+const autopopulate = require('mongoose-autopopulate');
+
 
 const receiptSchema = new mongoose.Schema({
   user: {
@@ -11,9 +13,12 @@ const receiptSchema = new mongoose.Schema({
     default: Date.now,
     required: 'Start date is required'
   },
-  rentAmount: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Contract"
+  rentPrice: {
+    populatedField: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Contract',
+      autopopulate: true
+    }
   },
   subject: {
     type: String,
@@ -35,6 +40,8 @@ const receiptSchema = new mongoose.Schema({
     }
   }
 });
+
+receiptSchema.plugin(require('mongoose-autopopulate'));
 
 const Receipt = mongoose.model('Receipt', receiptSchema);
 

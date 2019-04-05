@@ -31,10 +31,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use('/', authRouter, contractsRouter, receiptsRouter);
+
+app.use('/', authRouter, contractsRouter,);
 app.use('/users', usersRouter);
 app.use('/contract', contractsRouter);
-app.use('/receipt', receiptsRouter);
+app.use('/users/dashboard', contractsRouter);
+
+app.use('/receipts', receiptsRouter);
 
 
 

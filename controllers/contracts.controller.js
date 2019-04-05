@@ -12,7 +12,8 @@ const Contract = require('../models/contract.model');
 module.exports.create = (req, res, next) => {
   const contract = new Contract(req.body);
 
-  console.log(req.file);
+  console.log('single', req.file);
+  console.log('multiple', req.files);
   if (req.file) {
     contract.contractURL = req.file.secure_url;
   }
@@ -41,7 +42,7 @@ module.exports.get = (req, res, next) => {
 }
 
 module.exports.update = (req, res, next) => {
-  Contract.findByIdAndUpdate(req.params.id, req.body, { new: true })
+  Contract.findByIdAndUpdate(req.params.id, req.body, { new: true }) 
     .then(contract => {
       if (!contract) {
         throw createError(404, 'contract not found');

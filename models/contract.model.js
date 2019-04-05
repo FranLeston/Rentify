@@ -8,29 +8,33 @@ const contractSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
     },
+    tenantEmail: {
+      type: String,
+      required: true
+    },
     contractURL: {
       type: String
     },
     startDate: {
       type: Date,
-      required: true
+      required: false
     },
     endDate: {
       type: Date,
-      required: true
+      required: false
     },
-    rentAmount: {
+    rentPrice: {
       type: Number,
-      required: true
+      required: false
     },
     address: {
       type: String,
       required: true
     },
-    generalInfo: {
+    info: {
       type: String
     },
-    numCatastral: {
+    regNumnber: {
       type: String
     }
   },
