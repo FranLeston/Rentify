@@ -34,10 +34,6 @@ const userSchema = new mongoose.Schema({
     default: constants.defaultRole,
     required: 'Role is required'
   },
-  address: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Contract",
-  },
   phoneNum: {
     type: String
   },

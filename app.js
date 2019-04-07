@@ -32,7 +32,8 @@ app.use(passport.session());
 
 
 
-app.use('/', authRouter, contractsRouter,);
+// app.use('/', authRouter, contractsRouter,);
+app.use('/', authRouter);
 app.use('/users', usersRouter);
 app.use('/contract', contractsRouter);
 app.use('/users/dashboard', contractsRouter);

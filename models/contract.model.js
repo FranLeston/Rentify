@@ -4,7 +4,7 @@ const User = require("../models/user.model");
 
 const contractSchema = new mongoose.Schema(
   {
-    tenantId: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
     },
@@ -34,7 +34,10 @@ const contractSchema = new mongoose.Schema(
     info: {
       type: String
     },
-    regNumnber: {
+    regNumber: {
+      type: String
+    },
+    deposit: {
       type: String
     }
   },

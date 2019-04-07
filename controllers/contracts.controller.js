@@ -11,9 +11,8 @@ const Contract = require('../models/contract.model');
 
 module.exports.create = (req, res, next) => {
   const contract = new Contract(req.body);
+  console.log(req.body)
 
-  console.log('single', req.file);
-  console.log('multiple', req.files);
   if (req.file) {
     contract.contractURL = req.file.secure_url;
   }
@@ -24,7 +23,7 @@ module.exports.create = (req, res, next) => {
 
 
 module.exports.list = (req, res, next) => {
-  Contract.find()
+  Contract.find(req.params.id)
     .then(contracts => res.json(contracts))
     .catch(next);
 }
