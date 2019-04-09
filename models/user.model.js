@@ -30,8 +30,6 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: constants.roles,
-    default: constants.defaultRole,
     required: 'Role is required'
   },
   phoneNum: {
@@ -59,9 +57,7 @@ const userSchema = new mongoose.Schema({
 userSchema.pre('save', function (next) {
   const user = this;
 
-  user.role = admins.some(email => user.email === email) ? 
-    constants.adminRole : 
-    constants.defaultRole;
+  
 
   if (!user.isModified('password')) {
     next();

@@ -10,7 +10,10 @@ const Contract = require('../models/contract.model');
 // }
 
 module.exports.create = (req, res, next) => {
-  const contract = new Contract(req.body);
+  const contract = new Contract({
+    ...req.body,
+    user: req.user.id
+  });
   console.log(req.body)
 
   if (req.file) {
@@ -23,7 +26,13 @@ module.exports.create = (req, res, next) => {
 
 
 module.exports.list = (req, res, next) => {
-  Contract.find(req.params.id)
+  Contract.find()
+    .then(contracts => res.json(contracts))
+    .catch(next);
+}
+
+module.exports.listOwn = (req, res, next) => {
+  Contract.find({ user: req.user.id })
     .then(contracts => res.json(contracts))
     .catch(next);
 }
@@ -61,5 +70,11 @@ module.exports.delete = (req, res, next) => {
         res.status(204).json();
       }
     })
+    .catch(next);
+}
+
+module.exports.getTenantContract = (req, res, next) => {
+  Contract.find({tenantEmail: req.user.email})
+    .then(contracts => res.json(contracts))
     .catch(next);
 }

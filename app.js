@@ -37,6 +37,7 @@ app.use('/', authRouter);
 app.use('/users', usersRouter);
 app.use('/contract', contractsRouter);
 app.use('/users/dashboard', contractsRouter);
+app.use('/contract/rent', contractsRouter);
 
 app.use('/receipts', receiptsRouter);
 
