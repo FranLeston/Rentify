@@ -18,6 +18,8 @@ const authRouter = require('./routes/auth.routes');
 const usersRouter = require('./routes/users.routes');
 const contractsRouter = require('./routes/contracts.routes');
 const receiptsRouter = require('./routes/receipts.routes');
+const maintenanceRouter = require('./routes/maintenance.routes');
+
 
 const app = express();
 
@@ -34,12 +36,13 @@ app.use(passport.session());
 
 // app.use('/', authRouter, contractsRouter,);
 app.use('/', authRouter);
-app.use('/users', usersRouter);
+app.use('/users', usersRouter,);
 app.use('/contract', contractsRouter);
 app.use('/users/dashboard', contractsRouter);
 app.use('/contract/rent', contractsRouter);
-
 app.use('/receipts', receiptsRouter);
+app.use('/maintenance', maintenanceRouter);
+
 
 
 
