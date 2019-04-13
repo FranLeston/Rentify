@@ -19,7 +19,7 @@
 const cors = require('cors')
 const createError = require('http-errors');
 
-const allowedOrigins = ['mongodb://lestonramos:NewYorkCity911$@ds135786.mlab.com:35786/rentify-ironhack']
+const allowedOrigins = ['mongodb://<lestonramos>:<NewYorkCity911$>@ds135786.mlab.com:35786/rentify-ironhack']
 module.exports = cors({
   origin: (origin, next) => {
     const isAllowed = !origin || allowedOrigins.some(o => o === origin);
